@@ -18,6 +18,16 @@ export default function App() {
     "minccino",
     "mudkip",
     "growlithe",
+    "bulbasaur",
+    "squirtle",
+    "mimikyu",
+    "meowth",
+    "mew",
+    "sandshrew",
+    "vulpix",
+    "smeargle",
+    "emolga",
+    "psyduck"
   ];
   const maxScore = cutePokemon.length;
 
