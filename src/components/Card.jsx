@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function Card({ pokemonObj, handleCount, resetCount }) {
+export default function Card({
+  pokemonname,
+  increaseCount,
+  endGame,
+  gameover,
+}) {
   const [pokemon, setPokemon] = useState();
   const [clicked, setClicked] = useState(false);
 
@@ -17,8 +22,14 @@ export default function Card({ pokemonObj, handleCount, resetCount }) {
   }
 
   useEffect(() => {
-    getPokemon(pokemonObj.name);
-  }, [pokemon]);
+    getPokemon(pokemonname);
+  }, [pokemonname]);
+
+  useEffect(() => {
+    if (gameover) {
+      setClicked(false);
+    }
+  }, [gameover]);
 
   function handleClick() {
     return setClicked(true);
@@ -28,14 +39,18 @@ export default function Card({ pokemonObj, handleCount, resetCount }) {
     <>
       <article
         onClick={() => {
-          clicked ? resetCount() : handleCount();
+          if (clicked) {
+            endGame();
+          } else {
+            increaseCount();
+          }
           handleClick();
         }}
         className="card max-w-48 bg-slate-100 text-slate-900 rounded-md flex flex-col justify-center items-center"
       >
         <h1 className="text-3xl">
           {pokemon &&
-            pokemonObj.name.charAt(0).toUpperCase() + pokemonObj.name.slice(1)}
+            pokemonname.charAt(0).toUpperCase() + pokemonname.slice(1)}
         </h1>
         <img
           src={

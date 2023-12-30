@@ -8,8 +8,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgb(17, 17, 17);
+  background-color: #e6e6e6;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,6 +23,34 @@
 
 .card:hover {
   transform: scale(1.05);
+}
+
+.counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.gameover {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.295);
+  height: 100vh;
+  width: 100vw;
+}
+
+.gameover-button {
+  transition: 250ms;
+}
+
+.gameover-button:hover {
+  transform: scale(1.1);
 }
 
 @media (prefers-color-scheme: light) {
