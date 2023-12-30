@@ -25,6 +25,7 @@ export default function Card({
     getPokemon(pokemonname);
   }, [pokemonname]);
 
+  // this code is causing an error when the game ends by clicking all of them correctly
   useEffect(() => {
     if (gameover) {
       setClicked(false);
