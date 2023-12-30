@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import pokeball from "../assets/pokeball.svg";
 
 export default function Card({
   pokemonname,
-  increaseCount,
+  increaseScore,
   endGame,
   gameover,
+  maxScore,
+  score,
 }) {
   const [pokemon, setPokemon] = useState();
   const [clicked, setClicked] = useState(false);
@@ -25,12 +28,12 @@ export default function Card({
     getPokemon(pokemonname);
   }, [pokemonname]);
 
-  // this code is causing an error when the game ends by clicking all of them correctly
+  // this code is causing an error when the game ends by clicking all of them correctly. this is because it doesn't reset clicks right away
   useEffect(() => {
-    if (gameover) {
+    if (score === maxScore || gameover) {
       setClicked(false);
     }
-  }, [gameover]);
+  }, [gameover, score, maxScore]);
 
   function handleClick() {
     return setClicked(true);
@@ -42,9 +45,8 @@ export default function Card({
         onClick={() => {
           if (clicked) {
             endGame();
-          } else {
-            increaseCount();
           }
+          increaseScore();
           handleClick();
         }}
         className="card max-w-48 bg-slate-100 text-slate-900 rounded-md flex flex-col justify-center items-center"
@@ -55,7 +57,9 @@ export default function Card({
         </h1>
         <img
           src={
-            pokemon && pokemon.sprites.other["official-artwork"].front_default
+            pokemon
+              ? pokemon.sprites.other["official-artwork"].front_default
+              : pokeball
           }
           alt=""
         />

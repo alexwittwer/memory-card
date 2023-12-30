@@ -4,7 +4,7 @@ import Header from "./Header";
 import GameOver from "./GameOver";
 
 export default function App() {
-  const [count, setCount] = useState(0);
+  const [score, setScore] = useState(0);
   const [gameover, setGameover] = useState(false);
 
   const cutePokemon = [
@@ -19,13 +19,14 @@ export default function App() {
     "mudkip",
     "growlithe",
   ];
+  const maxScore = cutePokemon.length;
 
-  function increaseCount() {
-    return setCount(count + 1);
+  function increaseScore() {
+    return setScore(score + 1);
   }
 
-  function resetCount() {
-    return setCount(0);
+  function resetScore() {
+    return setScore(0);
   }
 
   function endGame() {
@@ -48,14 +49,14 @@ export default function App() {
 
   return (
     <div>
-      <Header count={count} />
+      <Header score={score} />
       <main className="grid grid-cols-5 place-items-center gap-4 m-5">
-        {gameover || count === cutePokemon.length ? (
+        {gameover || score === cutePokemon.length ? (
           <GameOver
-            resetCount={resetCount}
+            resetScore={resetScore}
             resetGame={resetGame}
-            count={count}
-            maxScore={cutePokemon.length}
+            score={score}
+            maxScore={maxScore}
           />
         ) : (
           ""
@@ -64,10 +65,12 @@ export default function App() {
           <Card
             key={pokemon}
             pokemonname={pokemon}
-            increaseCount={increaseCount}
-            resetCount={resetCount}
+            increaseScore={increaseScore}
+            resetScore={resetScore}
             endGame={endGame}
             gameover={gameover}
+            maxScore={maxScore}
+            score={score}
           />
         ))}
       </main>
