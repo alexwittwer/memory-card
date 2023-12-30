@@ -20,7 +20,7 @@ export default function App() {
     "growlithe",
     "bulbasaur",
     "squirtle",
-    "mimikyu",
+    "plusle",
     "meowth",
     "mew",
     "sandshrew",
