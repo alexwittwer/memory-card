@@ -61,6 +61,7 @@ export default function Card({
               ? pokemon.sprites.other["official-artwork"].front_default
               : pokeball
           }
+          className="min-w-32"
           alt=""
         />
       </article>
