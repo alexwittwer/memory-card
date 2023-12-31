@@ -40,6 +40,14 @@ main {
   margin-right: 10px;
 }
 
+.difficulty {
+  transition: 250ms;
+}
+
+.difficulty:hover {
+  transform: scale(1.05);
+}
+
 .gameover {
   display: flex;
   flex-flow: column;

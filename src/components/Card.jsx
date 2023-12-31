@@ -41,6 +41,8 @@ export default function Card({
 
   return (
     <>
+      {" "}
+      {console.log(pokemon)}
       <article
         onClick={() => {
           if (clicked) {
@@ -64,6 +66,7 @@ export default function Card({
           className="min-w-32"
           alt=""
         />
+        <div>{clicked.toString()}</div>
       </article>
     </>
   );
