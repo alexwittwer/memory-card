@@ -6,7 +6,7 @@ import GameOver from "./GameOver";
 export default function App() {
   const [score, setScore] = useState(0);
   const [gameover, setGameover] = useState(false);
-  const [difficulty, setDifficulty] = useState(3);
+  const [difficulty, setDifficulty] = useState(1);
 
   const EASY = 5;
   const MEDIUM = 10;
