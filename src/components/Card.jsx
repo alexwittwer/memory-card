@@ -66,7 +66,6 @@ export default function Card({
           className="min-w-32"
           alt=""
         />
-        <div>{clicked.toString()}</div>
       </article>
     </>
   );
