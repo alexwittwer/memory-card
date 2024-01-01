@@ -121,7 +121,7 @@ export default function App() {
         difficulty={difficulty}
       />
       {difficulty === 3 ? (
-        <div className="flex justify-center items-center bg-red-700 ">
+        <div className="flex justify-center text-slate-50 items-center bg-red-700 ">
           INSANE MODE UNLOCKED
         </div>
       ) : (
