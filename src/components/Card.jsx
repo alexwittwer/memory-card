@@ -28,9 +28,8 @@ export default function Card({
     getPokemon(pokemonname);
   }, [pokemonname]);
 
-  // this code is causing an error when the game ends by clicking all of them correctly. this is because it doesn't reset clicks right away
   useEffect(() => {
-    if (score === maxScore || gameover) {
+    if (score === maxScore || score === 0 || gameover) {
       setClicked(false);
     }
   }, [gameover, score, maxScore]);
@@ -41,8 +40,6 @@ export default function Card({
 
   return (
     <>
-      {" "}
-      {console.log(pokemon)}
       <article
         onClick={() => {
           if (clicked) {

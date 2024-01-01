@@ -55,7 +55,6 @@ export default function App() {
     "articuno",
   ];
 
-  console.log(POKEMON_CACHE.length);
   let pokemonList;
 
   switch (difficulty) {
@@ -91,6 +90,9 @@ export default function App() {
   }
 
   function selectDifficulty(choice) {
+    endGame();
+    resetGame();
+    resetScore();
     return setDifficulty(choice);
   }
 
