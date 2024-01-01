@@ -112,6 +112,18 @@ export default function App() {
 
   return (
     <div>
+      {gameover || score === pokemonList.length ? (
+        <GameOver
+          resetScore={resetScore}
+          resetGame={resetGame}
+          score={score}
+          maxScore={maxScore}
+          selectInsane={selectInsane}
+          difficulty={difficulty}
+        />
+      ) : (
+        ""
+      )}
       <Header
         score={score}
         selectDifficulty={selectDifficulty}
@@ -128,18 +140,6 @@ export default function App() {
         ""
       )}
       <main className="grid grid-cols-5 place-items-center gap-4 m-5">
-        {gameover || score === pokemonList.length ? (
-          <GameOver
-            resetScore={resetScore}
-            resetGame={resetGame}
-            score={score}
-            maxScore={maxScore}
-            selectInsane={selectInsane}
-            difficulty={difficulty}
-          />
-        ) : (
-          ""
-        )}
         {shuffle(pokemonList).map((pokemon) => (
           <Card
             key={pokemon}
@@ -147,8 +147,6 @@ export default function App() {
             increaseScore={increaseScore}
             resetScore={resetScore}
             endGame={endGame}
-            gameover={gameover}
-            maxScore={maxScore}
             score={score}
           />
         ))}

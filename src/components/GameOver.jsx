@@ -8,7 +8,7 @@ export default function GameOver({
 }) {
   return (
     <section className="gameover text-xl bg-slate-100 text-slate-900 p-5">
-      <div className="p-5 bg-red-50 text-slate-900 flex gap-3 flex-col items-center justify-center">
+      <div className="p-5 bg-red-50 text-slate-900 flex gap-5 flex-col items-center justify-center">
         {score === maxScore ? <div>You Win! </div> : <div>You lost...</div>}
         <button
           onClick={() => {

@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
 import pokeball from "../assets/pokeball.svg";
 
-export default function Card({
-  pokemonname,
-  increaseScore,
-  endGame,
-  gameover,
-  maxScore,
-  score,
-}) {
+export default function Card({ pokemonname, increaseScore, endGame, score }) {
   const [pokemon, setPokemon] = useState();
   const [clicked, setClicked] = useState(false);
 
@@ -28,11 +21,12 @@ export default function Card({
     getPokemon(pokemonname);
   }, [pokemonname]);
 
+  // resets clicks if game ends, or player changes difficulty
   useEffect(() => {
-    if (score === maxScore || score === 0 || gameover) {
+    if (score === 0) {
       setClicked(false);
     }
-  }, [gameover, score, maxScore]);
+  }, [score]);
 
   function handleClick() {
     return setClicked(true);
