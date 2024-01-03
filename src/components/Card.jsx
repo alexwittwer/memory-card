@@ -38,9 +38,9 @@ export default function Card({ pokemonname, increaseScore, endGame, score }) {
         onClick={() => {
           if (clicked) {
             endGame();
-          }
+          } else{
           increaseScore();
-          handleClick();
+          handleClick();}
         }}
         className="card max-w-48 bg-slate-100 text-slate-900 rounded-md flex flex-col justify-center items-center"
       >
