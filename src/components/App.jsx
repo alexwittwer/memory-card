@@ -7,6 +7,7 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [gameover, setGameover] = useState(false);
   const [difficulty, setDifficulty] = useState(1);
+  const [lightMode, setLightMode] = useState(false);
 
   const EASY = 5;
   const MEDIUM = 10;
@@ -54,24 +55,29 @@ export default function App() {
     "charmander",
     "articuno",
   ];
-
   let pokemonList;
+  let maxScore;
 
   switch (difficulty) {
     case 0:
+      maxScore = EASY;
       pokemonList = POKEMON_CACHE.slice(0, EASY);
       break;
     case 1:
+      maxScore = MEDIUM;
       pokemonList = POKEMON_CACHE.slice(0, MEDIUM);
       break;
     case 2:
+      maxScore = HARD;
       pokemonList = POKEMON_CACHE.slice(0, HARD);
       break;
     case 3:
+      maxScore = INSANE;
       pokemonList = POKEMON_CACHE.slice(0, INSANE);
       break;
   }
-  const maxScore = pokemonList.length;
+
+  maxScore = pokemonList.length;
 
   function increaseScore() {
     return setScore(score + 1);
@@ -111,7 +117,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div className="">
       {gameover || score === pokemonList.length ? (
         <GameOver
           resetScore={resetScore}
@@ -139,7 +145,7 @@ export default function App() {
       ) : (
         ""
       )}
-      <main className="grid grid-cols-5 place-items-center gap-4 m-5">
+      <main className="h-full grid grid-cols-5 place-items-center gap-4 p-5 m-5 overflow-y-auto">
         {shuffle(pokemonList).map((pokemon) => (
           <Card
             key={pokemon}
